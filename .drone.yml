@@ -1,10 +1,13 @@
 kind: pipeline
 type: docker
-name: default
+name: Build
+
+platform:
+  os: linux
+  arch: amd64
 
 steps:
-- name: test
-  image: golang
+- name: greeting
+  image: alpine
   commands:
-  - go build
-  - go test
+  - echo hello world
