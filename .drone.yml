@@ -2,15 +2,26 @@ kind: pipeline
 type: docker
 name: Build
 
+
 platform:
   os: linux
   arch: amd64
-  
-trigger:
-  branch:
-    - main
+
+clone:
+  disable: true
 
 steps:
+
+- name: check network connections
+  image: tphoney/traceroute
+  pull: if-not-exists
+  commands:
+  - env
+  - ping www.github.com -w 5
+  - traceroute -T -p 443  www.github.com
+  - echo "end of test"
+
+
 - name: greeting
   image: alpine
   commands:
