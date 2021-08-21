@@ -14,7 +14,7 @@ steps:
   commands:
     - echo hello world
 
-- name: test
+- name: test2
   image: alpine
   commands:
     - echo hello world
