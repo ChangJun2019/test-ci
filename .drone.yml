@@ -5,6 +5,10 @@ name: Build
 platform:
   os: linux
   arch: amd64
+  
+trigger:
+  branch:
+    - main
 
 steps:
 - name: greeting
